@@ -1,12 +1,11 @@
 <div align="center">
   <br />
-      <img src="https://github.com/dung170920/virtue" alt="Project Banner">
+      <img src="https://github.com/dung170920/virtue/public/preview.png" alt="Project Banner">
   <br />
 
   <div>
     <img src="https://img.shields.io/badge/-Typescript-black?style=for-the-badge&logoColor=white&logo=typescript&color=3178C6" alt="typescript" />
     <img src="https://img.shields.io/badge/-Next_JS-black?style=for-the-badge&logoColor=white&logo=nextdotjs&color=000000" alt="nextdotjs" />
-    <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="tailwindcss" />
     <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="tailwindcss" />
   </div>
 
@@ -33,7 +32,7 @@ Built with Next.js, TailwindCSS, and TypeScript, this landing page not only look
 
 ## <a name="design">🔋 Design</a>
 
-Design for the project are here [here](https://www.figma.com/design/IFUhtcyr8q65bUaAtInd6t/Crowdfunding?node-id=1233-26524&t=GsWCaC6EqS9JXpzU-1)
+Design for the project are here [here](https://www.uihut.com/product/crowdfunding-dashboard-design-web-app-ui-kit/18379)
 
 ## <a name="quick-start">🤸 Quick Start</a>
 
