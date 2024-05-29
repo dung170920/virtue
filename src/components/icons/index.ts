@@ -1,1 +1,2 @@
-export * from "./CampaignIcon";
+export * from './CampaignIcon';
+export * from './MoneyBagIcon';

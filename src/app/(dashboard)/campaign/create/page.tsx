@@ -1,6 +1,31 @@
-import { Input, Label, Textarea } from "@/components/ui";
+"use client";
+import { MoneyBagIcon } from "@/components/icons";
+import { Button, Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, Input, Label, Popover, PopoverContent, PopoverTrigger, Textarea } from "@/components/ui";
+import { cn } from "@/lib/utils";
+import { ArrowDown2, TickCircle } from "iconsax-react";
+import { useState } from "react";
+
+const categories = [
+  { label: "Art", value: "Art" },
+  { label: "Comics", value: "Comics" },
+  { label: "Crafts", value: "Crafts" },
+  { label: "Dance", value: "Dance" },
+  { label: "Design", value: "Design" },
+  { label: "Fashion", value: "Fashion" },
+  { label: "Film", value: "Film" },
+  { label: "Food", value: "Food" },
+  { label: "Games", value: "Games" },
+  { label: "Journalism", value: "Journalism" },
+  { label: "Music", value: "Music" },
+  { label: "Photography", value: "Photography" },
+  { label: "Technology", value: "Technology" },
+  { label: "Theater", value: "Theater" },
+];
 
 export default function CreateCampaign() {
+  const [open, setOpen] = useState<boolean>(false);
+  const [value, setValue] = useState<string>("");
+
   return (
     <div className="p-10 bg-card rounded-xl shadow flex flex-col gap-10 max-w-screen-xl mx-auto">
       <h1 className="py-5 px-14 bg-border text-muted-foreground w-fit mx-auto text-2xl font-bold rounded-xl">Start a Campaign 🚀</h1>
@@ -12,6 +37,51 @@ export default function CreateCampaign() {
           </div>
           <div className="flex-1 grid gap-2">
             <Label htmlFor="category">Category *</Label>
+            <Popover open={open} onOpenChange={setOpen}>
+              <PopoverTrigger asChild>
+                <Button
+                  variant="outline"
+                  role="combobox"
+                  aria-expanded={open}
+                  className="w-full justify-between"
+                >
+                  {value.length > 0
+                    ? categories.find((category) => category.value === value)?.label
+                    : "Select a category"}
+                  <ArrowDown2 className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-[200px] p-0">
+                <Command>
+                  <CommandInput placeholder="Search category..." />
+                  <CommandList>
+                    <CommandEmpty>No category found.</CommandEmpty>
+
+                    <CommandGroup>
+                      {categories.map((category) => (
+                        <CommandItem
+                          key={category.value}
+                          value={category.value}
+                          onSelect={(currentValue) => {
+                            setValue(currentValue === value ? "" : currentValue);
+                            setOpen(false);
+                          }}
+                        >
+                          <TickCircle
+                            className={cn(
+                              "mr-2 h-4 w-4",
+                              value === category.value ? "opacity-100" : "opacity-0"
+                            )}
+                          />
+                          {category.label}
+                        </CommandItem>
+                      ))}
+                    </CommandGroup>
+                  </CommandList>
+
+                </Command>
+              </PopoverContent>
+            </Popover>
 
           </div>
         </div>
@@ -20,9 +90,34 @@ export default function CreateCampaign() {
           <Textarea placeholder="Write a description" id="description" />
         </div>
       </div>
-      <div className="w-full flex justify-start items-center p-4 bg-secondary h-[120px] rounded-xl">
-        {/* <img src={money} alt="money" className="w-[40px] h-[40px] object-contain" /> */}
-        <h4 className="font-bold text-2xl text-white ml-5">You will get 90% of total raised</h4>
+      <div className="w-full flex justify-start items-center py-10 px-11 bg-secondary h-[120px] rounded-xl text-white">
+        <MoneyBagIcon className="w-10 h-10" />
+        <h4 className="font-bold text-2xl ml-5">You will get 90% of total raised</h4>
+      </div>
+      <div className="flex flex-col gap-6">
+        <div className="flex gap-11">
+          <div className="flex-1 grid gap-2">
+            <Label htmlFor="goal">Goal *</Label>
+            <Input type="number" id="goal" placeholder="$0.00 USD" />
+          </div>
+          <div className="flex-1 grid gap-2">
+            <Label htmlFor="rasied">Raised Amount *</Label>
+            <Input type="number" id="rasied" placeholder="$0.00 USD" />
+          </div>
+        </div>
+        <div className="flex gap-11">
+          <div className="flex-1 grid w-full gap-2">
+            <Label htmlFor="prefilled">Amount Prefilled</Label>
+            <Input type="number" id="prefilled" placeholder="$0.00 USD" />
+            <span className="text-sm text-neutral-500">It will help fill amount box by click, place each amount by comma, ex: <b>10,20,30,40</b></span>
+          </div>
+          <div className="flex-1 grid w-full gap-2">
+            <Label htmlFor="video">Video</Label>
+            <Input type="url" id="video" placeholder="Video" />
+            <span className="text-sm text-neutral-500">Place Youtube or Vimeo Video URL</span>
+          </div>
+        </div>
+
       </div>
     </div>
   );
