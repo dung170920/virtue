@@ -1,8 +1,9 @@
 "use client";
 import { MoneyBagIcon } from "@/components/icons";
-import { Button, Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, Input, Label, Popover, PopoverContent, PopoverTrigger, Textarea } from "@/components/ui";
+import { Button, Calendar, Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, Input, Label, Popover, PopoverContent, PopoverTrigger, Textarea } from "@/components/ui";
 import { cn } from "@/lib/utils";
-import { ArrowDown2, TickCircle } from "iconsax-react";
+import { format } from "date-fns";
+import { ArrowDown2, Calendar as CalendarIcon, TickCircle } from "iconsax-react";
 import { useState } from "react";
 
 const categories = [
@@ -23,8 +24,8 @@ const categories = [
 ];
 
 export default function CreateCampaign() {
-  const [open, setOpen] = useState<boolean>(false);
   const [value, setValue] = useState<string>("");
+  const [startDate, setStartDate] = useState<Date>();
 
   return (
     <div className="p-10 bg-card rounded-xl shadow flex flex-col gap-10 max-w-screen-xl mx-auto">
@@ -37,12 +38,11 @@ export default function CreateCampaign() {
           </div>
           <div className="flex-1 grid gap-2">
             <Label htmlFor="category">Category *</Label>
-            <Popover open={open} onOpenChange={setOpen}>
+            <Popover>
               <PopoverTrigger asChild>
                 <Button
                   variant="outline"
                   role="combobox"
-                  aria-expanded={open}
                   className="w-full justify-between"
                 >
                   {value.length > 0
@@ -62,9 +62,9 @@ export default function CreateCampaign() {
                         <CommandItem
                           key={category.value}
                           value={category.value}
+                          className="cursor-pointer"
                           onSelect={(currentValue) => {
                             setValue(currentValue === value ? "" : currentValue);
-                            setOpen(false);
                           }}
                         >
                           <TickCircle
@@ -117,7 +117,109 @@ export default function CreateCampaign() {
             <span className="text-sm text-neutral-500">Place Youtube or Vimeo Video URL</span>
           </div>
         </div>
+        <div className="flex gap-11">
+          <div className="flex-1 grid gap-2">
+            <Label htmlFor="method">Campaign End Method</Label>
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button
+                  variant="outline"
+                  role="combobox"
+                  className="w-full justify-between"
+                >
+                  Select one
+                  <ArrowDown2 className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-[200px] p-0">
+                <Command>
+                  <CommandInput placeholder="Search method..." />
+                  <CommandList>
+                    <CommandEmpty>No method found.</CommandEmpty>
+                  </CommandList>
 
+                </Command>
+              </PopoverContent>
+            </Popover>
+          </div>
+          <div className="flex-1 grid gap-2">
+            <Label htmlFor="category">Country</Label>
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button
+                  variant="outline"
+                  role="combobox"
+                  className="w-full justify-between"
+                >
+                  Select a country
+                  <ArrowDown2 className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-[200px] p-0">
+                <Command>
+                  <CommandInput placeholder="Search language..." />
+                  <CommandList>
+                    <CommandEmpty>No country found.</CommandEmpty>
+                  </CommandList>
+
+                </Command>
+              </PopoverContent>
+            </Popover>
+
+          </div>
+        </div>
+        <div className="flex gap-11">
+          <div className="flex-1 grid gap-2">
+            <Label htmlFor="method">Start Date</Label>
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button
+                  variant={"outline"}
+                  className={cn(
+                    "justify-start text-left font-normal",
+                    !startDate && "text-muted-foreground"
+                  )}
+                >
+                  <CalendarIcon className="mr-2 h-4 w-4" />
+                  {startDate ? format(startDate, "PPP") : <span>Pick a date</span>}
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-auto p-0">
+                <Calendar
+                  mode="single"
+                  selected={startDate}
+                  onSelect={setStartDate}
+                  initialFocus
+                />
+              </PopoverContent>
+            </Popover>
+          </div>
+          <div className="flex-1 grid gap-2">
+            <Label htmlFor="category">Country</Label>
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button
+                  variant="outline"
+                  role="combobox"
+                  className="w-full justify-between"
+                >
+                  Select a country
+                  <ArrowDown2 className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-[200px] p-0">
+                <Command>
+                  <CommandInput placeholder="Search language..." />
+                  <CommandList>
+                    <CommandEmpty>No country found.</CommandEmpty>
+                  </CommandList>
+
+                </Command>
+              </PopoverContent>
+            </Popover>
+
+          </div>
+        </div>
       </div>
     </div>
   );

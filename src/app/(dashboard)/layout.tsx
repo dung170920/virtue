@@ -11,9 +11,11 @@ export default function DashboardLayout({
       <div className="sm:flex hidden md:pb-10 pb-4">
         <Sidebar />
       </div>
-      <main className="flex-1">
+      <main className="flex flex-col flex-1">
         <Header />
-        <ScrollArea className="mt-[30px]">{children}</ScrollArea>
+        <ScrollArea className="mt-[30px] flex-1 md:pb-10 pb-4">
+          {children}
+        </ScrollArea>
       </main>
     </div>
   );
