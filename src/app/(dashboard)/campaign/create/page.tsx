@@ -26,11 +26,12 @@ const categories = [
 export default function CreateCampaign() {
   const [value, setValue] = useState<string>("");
   const [startDate, setStartDate] = useState<Date>();
+  const [endDate, setEndDate] = useState<Date>();
 
   return (
-    <div className="p-10 bg-card rounded-xl shadow flex flex-col gap-10 max-w-screen-xl mx-auto">
+    <div className="p-10 bg-card rounded-xl shadow flex flex-col gap-10 max-w-screen-xl items-center mx-auto">
       <h1 className="py-5 px-14 bg-border text-muted-foreground w-fit mx-auto text-2xl font-bold rounded-xl">Start a Campaign 🚀</h1>
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6 w-full">
         <div className="flex gap-11">
           <div className="flex-1 grid gap-2">
             <Label htmlFor="title">Title *</Label>
@@ -94,7 +95,7 @@ export default function CreateCampaign() {
         <MoneyBagIcon className="w-10 h-10" />
         <h4 className="font-bold text-2xl ml-5">You will get 90% of total raised</h4>
       </div>
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6 w-full">
         <div className="flex gap-11">
           <div className="flex-1 grid gap-2">
             <Label htmlFor="goal">Goal *</Label>
@@ -170,7 +171,7 @@ export default function CreateCampaign() {
         </div>
         <div className="flex gap-11">
           <div className="flex-1 grid gap-2">
-            <Label htmlFor="method">Start Date</Label>
+            <Label htmlFor="startDate">Start Date</Label>
             <Popover>
               <PopoverTrigger asChild>
                 <Button
@@ -195,32 +196,36 @@ export default function CreateCampaign() {
             </Popover>
           </div>
           <div className="flex-1 grid gap-2">
-            <Label htmlFor="category">Country</Label>
+            <Label htmlFor="endDate">End Date</Label>
             <Popover>
               <PopoverTrigger asChild>
                 <Button
-                  variant="outline"
-                  role="combobox"
-                  className="w-full justify-between"
+                  variant={"outline"}
+                  className={cn(
+                    "justify-start text-left font-normal",
+                    !endDate && "text-muted-foreground"
+                  )}
                 >
-                  Select a country
-                  <ArrowDown2 className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                  <CalendarIcon className="mr-2 h-4 w-4" />
+                  {endDate ? format(endDate, "PPP") : <span>Pick a date</span>}
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="w-[200px] p-0">
-                <Command>
-                  <CommandInput placeholder="Search language..." />
-                  <CommandList>
-                    <CommandEmpty>No country found.</CommandEmpty>
-                  </CommandList>
-
-                </Command>
+              <PopoverContent className="w-auto p-0">
+                <Calendar
+                  mode="single"
+                  selected={endDate}
+                  onSelect={setEndDate}
+                  initialFocus
+                />
               </PopoverContent>
             </Popover>
-
           </div>
         </div>
       </div>
+      <div className="">
+        <Button>Submit new campaign</Button>
+      </div>
+
     </div>
   );
 }
