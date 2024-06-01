@@ -8,7 +8,7 @@ import MobileLink from './MobileLink'
 export const Header = () => {
 
   return (
-    <nav className='flex flex-row items-center justify-between gap-4'>
+    <nav className='flex flex-row items-center justify-between gap-4 md:px-10'>
       <div className="sm:hidden block">
         <MobileLink />
       </div>

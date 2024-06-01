@@ -49,16 +49,6 @@
     --ring: #1DC071;
     --shadow: 10px 10px 20px rgba(33, 25, 25, 0.17);
   }
-
-  body {
-    @apply bg-background text-foreground px-4 md:px-10 pt-4 md:pt-10 h-screen w-full overflow-hidden font-normal;
-  }
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
 }
 
 @layer utilities {
@@ -73,4 +63,32 @@
     /* Fallback */
     height: 100dvh;
   }
+}
+
+body {
+  @apply bg-background text-foreground pl-4 md:pl-10 pt-4 md:pt-10 h-screen w-full overflow-hidden font-normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  @apply bg-border rounded-full;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground;
 }

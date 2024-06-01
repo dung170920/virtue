@@ -1,4 +1,3 @@
-export * from './scroll-area';
 export * from './button';
 export * from './popover';
 export * from './separator';
@@ -8,3 +7,4 @@ export * from './input';
 export * from './textarea';
 export * from './command';
 export * from './calendar';
+export * from './progress';

@@ -1,35 +1,21 @@
 "use client";
 import { MoneyBagIcon } from "@/components/icons";
 import { Button, Calendar, Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, Input, Label, Popover, PopoverContent, PopoverTrigger, Textarea } from "@/components/ui";
+import { categories } from "@/constants";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 import { ArrowDown2, Calendar as CalendarIcon, TickCircle } from "iconsax-react";
 import { useState } from "react";
 
-const categories = [
-  { label: "Art", value: "Art" },
-  { label: "Comics", value: "Comics" },
-  { label: "Crafts", value: "Crafts" },
-  { label: "Dance", value: "Dance" },
-  { label: "Design", value: "Design" },
-  { label: "Fashion", value: "Fashion" },
-  { label: "Film", value: "Film" },
-  { label: "Food", value: "Food" },
-  { label: "Games", value: "Games" },
-  { label: "Journalism", value: "Journalism" },
-  { label: "Music", value: "Music" },
-  { label: "Photography", value: "Photography" },
-  { label: "Technology", value: "Technology" },
-  { label: "Theater", value: "Theater" },
-];
+
 
 export default function CreateCampaign() {
-  const [value, setValue] = useState<string>("");
+  const [value, setValue] = useState<number>(-1);
   const [startDate, setStartDate] = useState<Date>();
   const [endDate, setEndDate] = useState<Date>();
 
   return (
-    <div className="p-10 bg-card rounded-xl shadow flex flex-col gap-10 max-w-screen-xl items-center mx-auto">
+    <div className="p-10 bg-card rounded-xl shadow flex flex-col gap-10 items-center">
       <h1 className="py-5 px-14 bg-border text-muted-foreground w-fit mx-auto text-2xl font-bold rounded-xl">Start a Campaign 🚀</h1>
       <div className="flex flex-col gap-6 w-full">
         <div className="flex gap-11">
@@ -46,7 +32,7 @@ export default function CreateCampaign() {
                   role="combobox"
                   className="w-full justify-between"
                 >
-                  {value.length > 0
+                  {value > 0
                     ? categories.find((category) => category.value === value)?.label
                     : "Select a category"}
                   <ArrowDown2 className="ml-2 h-4 w-4 shrink-0 opacity-50" />
@@ -62,10 +48,10 @@ export default function CreateCampaign() {
                       {categories.map((category) => (
                         <CommandItem
                           key={category.value}
-                          value={category.value}
+                          value={category.value.toString()}
                           className="cursor-pointer"
                           onSelect={(currentValue) => {
-                            setValue(currentValue === value ? "" : currentValue);
+                            setValue(Number(currentValue) === value ? -1 : Number(currentValue));
                           }}
                         >
                           <TickCircle
@@ -89,6 +75,10 @@ export default function CreateCampaign() {
         <div className="grid w-full gap-2">
           <Label htmlFor="description">Description *</Label>
           <Textarea placeholder="Write a description" id="description" />
+        </div>
+        <div className="grid w-full gap-2">
+          <Label htmlFor="image">Image *</Label>
+          <Input id="image" type="file" multiple />
         </div>
       </div>
       <div className="w-full flex justify-start items-center py-10 px-11 bg-secondary h-[120px] rounded-xl text-white">
