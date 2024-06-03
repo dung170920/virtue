@@ -15,7 +15,7 @@ const Campaign = ({ isHorizontal = false, campaign }: Props) => {
       !isHorizontal ? (
         <div className="overflow-hidden rounded-xl w-[288px] bg-card">
           <Image
-            src={campaign.images[0]}
+            src={campaign.image}
             alt=""
             className="aspect-video h-auto w-full object-cover rounded-xl"
             width={1000}

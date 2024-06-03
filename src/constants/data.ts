@@ -25,10 +25,8 @@ export const popularCampaigns: CampaignType[] = [
     country: 'USA',
     totalBackers: 173,
     description: 'Fun, durable and reusable boxes with eco-friendly options.',
-    images: [
+    image:
       'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWR1Y2F0aW9ufGVufDB8fDB8fHww'
-    ],
     goal: 2000,
     raised: 1900,
     startDate: new Date(),
@@ -42,10 +40,8 @@ export const popularCampaigns: CampaignType[] = [
     country: 'USA',
     totalBackers: 50,
     description: 'Together we can create access for everyone!',
-    images: [
+    image:
       'https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8aG9tZXxlbnwwfHwwfHx8MA%3D%3D',
-      'https://images.unsplash.com/photo-1449844908441-8829872d2607?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGhvbWV8ZW58MHx8MHx8fDA%3D'
-    ],
     goal: 2500,
     raised: 2200,
     startDate: new Date(),
@@ -59,10 +55,8 @@ export const popularCampaigns: CampaignType[] = [
     country: 'USA',
     totalBackers: 12,
     description: 'My computer decided to die. As a result, my small business.',
-    images: [
+    image:
       'https://images.unsplash.com/photo-1517059224940-d4af9eec41b7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aW1hY3xlbnwwfHwwfHx8MA%3D%3D',
-      'https://images.unsplash.com/photo-1527443195645-1133f7f28990?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hY3xlbnwwfHwwfHx8MA%3D%3D'
-    ],
     goal: 1800,
     raised: 1200,
     startDate: new Date(),
@@ -77,9 +71,8 @@ export const popularCampaigns: CampaignType[] = [
     totalBackers: 100,
     description:
       'Your home for indie and classic cinema has just been handed an...',
-    images: [
-      'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2hhaXJ8ZW58MHx8MHx8fDA%3D'
-    ],
+    image:
+      'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2hhaXJ8ZW58MHx8MHx8fDA%3D',
     goal: 10900,
     raised: 5000,
     startDate: new Date(),
@@ -87,7 +80,7 @@ export const popularCampaigns: CampaignType[] = [
     videoUrl: ''
   }
 ];
-export const recentCampaigns = [
+export const recentCampaigns: CampaignType[] = [
   {
     id: 5,
     category: 13,
@@ -95,9 +88,8 @@ export const recentCampaigns = [
     country: 'USA',
     totalBackers: 12,
     description: 'THE SV RIG. - Start Creating Now Without Limitation.',
-    images: [
-      'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FtZXJhfGVufDB8fDB8fHww'
-    ],
+    image:
+      'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FtZXJhfGVufDB8fDB8fHww',
     goal: 1100,
     raised: 500,
     startDate: new Date(),
@@ -112,10 +104,8 @@ export const recentCampaigns = [
     totalBackers: 50,
     description:
       'A unique restaurant, bar, beer garden, and tailgating location',
-    images: [
+    image:
       'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D',
-      'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D'
-    ],
     goal: 1200,
     raised: 950,
     startDate: new Date(),
@@ -129,10 +119,8 @@ export const recentCampaigns = [
     country: 'USA',
     totalBackers: 5,
     description: 'A team of ex-superheroes attempt to save a "monster"',
-    images: [
+    image:
       'https://images.unsplash.com/photo-1615928081877-3885aba162ba?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bm92ZWx8ZW58MHx8MHx8fDA%3D',
-      'https://images.unsplash.com/photo-1599495054627-35ad07218a46?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bm92ZWx8ZW58MHx8MHx8fDA%3D'
-    ],
     goal: 1900,
     raised: 1800,
     startDate: new Date(),
@@ -146,9 +134,8 @@ export const recentCampaigns = [
     country: 'USA',
     totalBackers: 100,
     description: 'A new category of super comfortable casual shoes.',
-    images: [
-      'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2hvZXN8ZW58MHx8MHx8fDA%3D'
-    ],
+    image:
+      'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2hvZXN8ZW58MHx8MHx8fDA%3D',
     goal: 5000,
     raised: 4000,
     startDate: new Date(),

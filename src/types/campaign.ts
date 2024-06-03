@@ -2,7 +2,7 @@ export type CampaignType = {
   id: number;
   title: string;
   description: string;
-  images: string[];
+  image: string;
   category: number;
   goal: number;
   raised: number;
