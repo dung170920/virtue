@@ -24,7 +24,8 @@
     --input: #e4e4e7;
     --ring: #1DC071;
     --radius: 0.5rem;
-    --shadow: 10px 10px 20px rgba(218, 213, 213, 0.15)
+    --shadow: 10px 10px 20px rgba(218, 213, 213, 0.15);
+    --card-shadow: 0 2px 4px rgba(184, 184, 184, 0.03), 0 6px 12px rgba(184, 184, 184, 0.02), 0 12px 20px rgba(184, 184, 184, 0.03);
   }
 
   .dark {
@@ -48,6 +49,7 @@
     --input: #27272A;
     --ring: #1DC071;
     --shadow: 10px 10px 20px rgba(33, 25, 25, 0.17);
+    --card-shadow: 0 2px 4px rgba(33, 25, 25, 0.03), 0 6px 12px rgba(33, 25, 25, 0.02), 0 12px 20px rgba(33, 25, 25, 0.03);
   }
 }
 

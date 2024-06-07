@@ -1,6 +1,7 @@
 import Campaign from "@/components/Campaign";
 import { popularCampaigns, recentCampaigns } from "@/constants";
 
+
 export default function Dashboard() {
   return (
     <>

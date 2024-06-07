@@ -73,7 +73,8 @@ const config = {
         'accordion-up': 'accordion-up 0.2s ease-out'
       },
       boxShadow: {
-        DEFAULT: 'var(--shadow)'
+        DEFAULT: 'var(--shadow)',
+        card: 'var(--card-shadow)'
       },
       borderColor: {
         DEFAULT: 'var(--border)'
