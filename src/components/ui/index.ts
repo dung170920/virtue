@@ -8,3 +8,4 @@ export * from './textarea';
 export * from './command';
 export * from './calendar';
 export * from './progress';
+export * from './checkbox';

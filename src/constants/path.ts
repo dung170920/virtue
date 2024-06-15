@@ -1,8 +1,11 @@
 export const PATH = {
-  dashboard: "/",
-  campaign: "/campaign",
-  createCampaign: "/campaign/create",
-  payment: "/payment",
-  withdraw: "/withdraw",
-  profile: "/profile",
+  dashboard: '/',
+  signUp: '/sign-up',
+  signIn: '/sign-in',
+
+  campaign: '/campaign',
+  createCampaign: '/campaign/create',
+  payment: '/payment',
+  withdraw: '/withdraw',
+  profile: '/profile'
 };
